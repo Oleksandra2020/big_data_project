@@ -1,5 +1,16 @@
-# docker exec -it cassandra-node1 cqlsh -e " CREATE KEYSPACE hw8 WITH REPLICATION = {'class' : 'SimpleStrategy', 'replication_factor' : 1 }; USE hw8; CREATE TABLE transactions_fraud (name_org text, trans_date date, step int, tp text, amount float, old_balance_org float, new_balance_org float, name_dest text, old_balance_dest float, new_balance_dest float, is_fraud int, is_flagged_fraud int, PRIMARY KEY ((name_org), is_fraud)); CREATE TABLE transactions_amount (name_org text, trans_date date, step int, tp text, amount float, old_balance_org float, new_balance_org float, name_dest text, old_balance_dest float, new_balance_dest float, is_fraud int, is_flagged_fraud int, PRIMARY KEY ((name_org), amount)) WITH CLUSTERING ORDER BY (amount DESC); CREATE TABLE transactions_date (name_org text, trans_date date, step int, tp text, amount float, old_balance_org float, new_balance_org float, name_dest text, old_balance_dest float, new_balance_dest float, is_fraud int, is_flagged_fraud int, PRIMARY KEY ((name_org), trans_date));"
+docker exec -it cassandra-node1 cqlsh -e "
+CREATE KEYSPACE big_data_project WITH REPLICATION = {'class' : 'SimpleStrategy', 'replication_factor' : 1 };
 
-docker run -it --network general-network --rm cassandra cqlsh cassandra-node1
+USE big_data_project;
 
-# COPY general(review_date) TO './data.csv' WITH HEADER = TRUE;
+CREATE TABLE page_domain (domain text, page_id int, PRIMARY KEY (domain));
+
+CREATE TABLE pages (page_id int, page_title text, PRIMARY KEY (page_id));
+
+CREATE TABLE page_user (user_id int, page_title text, PRIMARY KEY (user_id));
+
+CREATE TABLE info_per_date (review_date timestamp, page_title text, page_id int, user_id int, PRIMARY KEY ((review_date), user_id));
+
+CREATE TABLE general (review_date timestamp, domain text, page_id int, user_is_bot boolean, page_title text, user_id int, user_text text, PRIMARY KEY((domain), page_id));"
+
+# docker run -it --network general-network --rm cassandra cqlsh cassandra-node1

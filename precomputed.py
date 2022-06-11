@@ -111,7 +111,7 @@ def rerport3():
         f = filtered_users.select("user_text", "review_date", "page_title").where(filtered_users.user_id == user)
         page_titles = []
         for i in f.collect():
-            page_titles.append(i['page_title'])
+            page_titles.append(str(i['page_title']))
 
         data.append([i["user_text"], user, str(i['review_date']), str(i['review_date']+timedelta(hours=6)), len(page_titles), page_titles])
 
@@ -130,13 +130,15 @@ if __name__ == "__main__":
     client.connect()
 
     # # call every hour
-    scheduler = BlockingScheduler()
+    # scheduler = BlockingScheduler()
+    # df = read_from_cassandra()
+    # scheduler.add_job(rerport1, 'interval', hours=1)
+    # scheduler.add_job(rerport2, 'interval', hours=1)
+    # scheduler.add_job(rerport3, 'interval', hours=1)
+    # scheduler.start()
+
     df = read_from_cassandra()
-    scheduler.add_job(rerport1, 'interval', hours=1)
-    scheduler.add_job(rerport2, 'interval', hours=1)
-    scheduler.add_job(rerport3, 'interval', hours=1)
-    scheduler.start()
-    # rerport1()
+    rerport1()
     # rerport2()
     # rerport3()
 
