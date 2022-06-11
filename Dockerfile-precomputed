@@ -2,9 +2,13 @@ FROM datamechanics/spark:3.1-latest
 
 ENV PYSPARK_MAJOR_PYTHON_VERSION=3
 
+WORKDIR big_data_project
+
 RUN pip install cassandra-driver
 
 RUN pip install pyspark
+
+RUN pip install apscheduler
 
 COPY precomputed.py .
 
