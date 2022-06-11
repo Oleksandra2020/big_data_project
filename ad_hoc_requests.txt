@@ -1,0 +1,24 @@
+curl --header "Content-Type: application/json" \
+  --request GET \
+  --data '{"request_num":1}' \
+  http://0.0.0.0:8081/
+
+curl --header "Content-Type: application/json" \
+  --request GET \
+  --data '{"request_num":2,"user_id":"304539"}' \
+  http://0.0.0.0:8081/
+
+curl --header "Content-Type: application/json" \
+  --request GET \
+  --data '{"request_num":3,"domain":"en.wikipedia.org"}' \
+  http://0.0.0.0:8081/
+
+curl --header "Content-Type: application/json" \
+  --request GET \
+  --data '{"request_num":4,"page_id":82286}' \
+  http://0.0.0.0:8081/
+
+curl --header "Content-Type: application/json" \
+  --request GET \
+  --data '{"request_num":5,"start_date":"2020-06-10T21:41:17Z","end_date":"2023-06-10T21:41:17Z"}' \
+  http://0.0.0.0:8081/

@@ -1,0 +1,5 @@
+# docker exec -it cassandra-node1 cqlsh -e " CREATE KEYSPACE hw8 WITH REPLICATION = {'class' : 'SimpleStrategy', 'replication_factor' : 1 }; USE hw8; CREATE TABLE transactions_fraud (name_org text, trans_date date, step int, tp text, amount float, old_balance_org float, new_balance_org float, name_dest text, old_balance_dest float, new_balance_dest float, is_fraud int, is_flagged_fraud int, PRIMARY KEY ((name_org), is_fraud)); CREATE TABLE transactions_amount (name_org text, trans_date date, step int, tp text, amount float, old_balance_org float, new_balance_org float, name_dest text, old_balance_dest float, new_balance_dest float, is_fraud int, is_flagged_fraud int, PRIMARY KEY ((name_org), amount)) WITH CLUSTERING ORDER BY (amount DESC); CREATE TABLE transactions_date (name_org text, trans_date date, step int, tp text, amount float, old_balance_org float, new_balance_org float, name_dest text, old_balance_dest float, new_balance_dest float, is_fraud int, is_flagged_fraud int, PRIMARY KEY ((name_org), trans_date));"
+
+docker run -it --network general-network --rm cassandra cqlsh cassandra-node1
+
+# COPY general(review_date) TO './data.csv' WITH HEADER = TRUE;
