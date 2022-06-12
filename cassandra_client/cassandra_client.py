@@ -45,8 +45,8 @@ class CassandraClient:
         rows = self.session.execute(query)
         return rows
 
-    def query_three(self, domain):
-        query = f"SELECT COUNT(page_id) AS count FROM page_domain WHERE domain='{domain}';"
+    def query_three(self):
+        query = f"SELECT page_id, domain FROM page_domain;"
         rows = self.session.execute(query)
         return rows
 
@@ -62,5 +62,20 @@ class CassandraClient:
 
     def query_general(self):
         query = "SELECT * FROM general;"
+        rows = self.session.execute(query)
+        return rows
+
+    def query_statistics1(self):
+        query = f"SELECT * FROM statistics1;"
+        rows = self.session.execute(query)
+        return rows
+
+    def query_statistics2(self):
+        query = "SELECT * FROM statistics2;"
+        rows = self.session.execute(query)
+        return rows
+
+    def query_statistics3(self):
+        query = "SELECT * FROM statistics3;"
         rows = self.session.execute(query)
         return rows

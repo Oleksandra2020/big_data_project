@@ -12,8 +12,8 @@ RUN pip install flask
 
 RUN pip install flask-restful
 
-COPY ad_hoc_app.py .
+COPY app.py .
 
 COPY ./cassandra_client/cassandra_client.py .
 
-ENTRYPOINT ["python3", "ad_hoc_app.py"]
+ENTRYPOINT ["python3", "app.py"]

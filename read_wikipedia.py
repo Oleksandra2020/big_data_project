@@ -6,33 +6,35 @@ import cassandra
 
 
 def write_to_cassandra():
-    url = 'https://stream.wikimedia.org/v2/stream/page-create'
-    req = requests.get(url=url, stream=True, timeout=100)
-
-    for message in req.iter_lines(decode_unicode=True):
+    while True:
         try:
-            if message[:4] == "data":
-                record = json.loads(message[5:])
+            url = 'https://stream.wikimedia.org/v2/stream/page-create'
+            req = requests.get(url=url, stream=True)
 
-                client.insert_record(
-                    "page_domain", {"domain": record["meta"]["domain"], "page_id": record["page_id"]})
-                client.insert_record(
-                    "pages", {"page_id": record["page_id"], "page_title": record["page_title"]})
-                client.insert_record(
-                    "page_user", {"user_id": record["performer"]["user_id"], "page_title": record["page_title"]})
+            for message in req.iter_lines(decode_unicode=True):
+                if message[:4] == "data":
+                    record = json.loads(message[5:])
 
-                review_date = record["rev_timestamp"]
-                review_date = datetime.strptime(
-                    record["rev_timestamp"], "%Y-%m-%dT%H:%M:%SZ")
+                    client.insert_record(
+                        "page_domain", {"domain": record["meta"]["domain"], "page_id": record["page_id"]})
+                    client.insert_record(
+                        "pages", {"page_id": record["page_id"], "page_title": record["page_title"]})
+                    client.insert_record(
+                        "page_user", {"user_id": record["performer"]["user_id"], "page_title": record["page_title"]})
 
-                client.insert_record("info_per_date", {"review_date": review_date, "page_title": record["page_title"],
-                                                       "page_id": record["page_id"], "user_id": record["performer"]["user_id"]})
+                    review_date = record["rev_timestamp"]
+                    review_date = datetime.strptime(
+                        record["rev_timestamp"], "%Y-%m-%dT%H:%M:%SZ")
 
-                client.insert_record("general", {"review_date": review_date, "domain": record["meta"]["domain"],
-                                                 "page_id": record["page_id"], "user_is_bot": record["performer"]["user_is_bot"],
-                                                 "page_title": record["page_title"],
-                                                 "user_id": record["performer"]["user_id"],
-                                                 "user_text": record["performer"]["user_text"]})
+                    client.insert_record("info_per_date", {"review_date": review_date, "page_title": record["page_title"],
+                                                           "page_id": record["page_id"], "user_id": record["performer"]["user_id"]})
+
+                    client.insert_record("general", {"review_date": review_date, "domain": record["meta"]["domain"],
+                                                     "page_id": record["page_id"], "user_is_bot": record["performer"]["user_is_bot"],
+                                                     "page_title": record["page_title"],
+                                                     "user_id": record["performer"]["user_id"],
+                                                     "user_text": record["performer"]["user_text"]})
+            break
         except (KeyError, cassandra.protocol.SyntaxException):
             continue
 

@@ -3,7 +3,7 @@ from pyspark.sql.types import *
 from pyspark.sql import functions as F
 from pyspark.sql.functions import col, date_trunc, desc
 from cassandra_client import CassandraClient
-from datetime import timedelta
+from datetime import timedelta, datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 spark = SparkSession.builder.appName('big_data_project').getOrCreate()
@@ -17,24 +17,19 @@ def read_from_cassandra():
     return spark.createDataFrame(data)
 
 
-def rerport1():
-    grouped_domain = df.withColumn("review_date", date_trunc("hour", col("review_date"))).groupBy(
-        'review_date', 'domain').agg(F.count('page_id')).sort("review_date")
-    print(grouped_domain.show())
+def report1(df):
+    now = datetime.now()
+    time_start = (now - timedelta(hours=7)).replace(minute=0,
+                                                    second=0, microsecond=0)
+    time_end = (now - timedelta(hours=1)).replace(minute=0,
+                                                  second=0, microsecond=0)
 
-    schema = StructType([
-        StructField("time_start", StringType()),
-        StructField("time_end", StringType()),
-        StructField("statistics", ArrayType(
-            StructType([
-                    StructField("domain", StringType()),
-                    StructField("page_count", LongType())
-                    ])
-        ))
-    ])
+    grouped_domain = df.filter((df.review_date >= time_start) & (df.review_date <= time_end)).withColumn(
+        "review_date", date_trunc("hour", col("review_date"))).groupBy(
+        'review_date', 'domain').agg(F.count('page_id')).sort("review_date")
+    # grouped_domain.show()
 
     time_dct = {}
-
     for d in grouped_domain.collect():
         domain, review_date, count = d[1], d[0], d[2]
         if review_date not in time_dct:
@@ -42,84 +37,77 @@ def rerport1():
         time_dct[review_date].append([domain, count])
 
     for k in time_dct:
-        data = [str(k), str(k+timedelta(hours=1)), time_dct[k]]
-        print(data)
-        res_df = spark.createDataFrame(data=[data], schema=schema)
-        res_df.printSchema()
-        res_df.show(truncate=False)
-
-        # r = str(k)[11:13] # retrieve hour
-        # res_df.write.mode("Overwrite").json(f"./a_{r}")
+        time_start, time_end, statistics = k, k + \
+            timedelta(hours=1), f"{time_dct[k]}"
+        statistics = statistics.replace("'", '"')
+        query = f"INSERT INTO statistics1 (time_start, time_end, statistics) VALUES ('{time_start}', '{time_end}', '{statistics}');"
+        client.execute(query)
 
 
-def rerport2():
-    grouped_domain = df.withColumn("review_date", date_trunc("hour", col("review_date"))).groupBy(
-        'review_date', 'domain').agg(F.count('user_is_bot')).sort("review_date")
-    print(grouped_domain.show())
+def report2(df):
+    now = datetime.now()
+    time_start = (now - timedelta(hours=7)).replace(minute=0,
+                                                    second=0, microsecond=0)
+    time_end = (now - timedelta(hours=1)).replace(minute=0,
+                                                  second=0, microsecond=0)
 
-    schema = StructType([
-        StructField("time_start", StringType()),
-        StructField("time_end", StringType()),
-        StructField("statistics", ArrayType(
-            StructType([
-                    StructField("domain", StringType()),
-                    StructField("created_by_bots", LongType())
-                    ])
-        ))
-    ])
+    grouped_domain = df.filter((df.review_date >= time_start) & (df.review_date <= time_end)).withColumn(
+        "user_is_bot", col("user_is_bot").cast('integer')).groupBy(
+        'domain').agg(F.sum('user_is_bot'))
+    # grouped_domain.show()
 
-    bot_dct = {}
+    domain_bots = []
 
     for d in grouped_domain.collect():
-        domain, review_date, bot = d[1], d[0], d[2]
-        if review_date not in bot_dct:
-            bot_dct[review_date] = []
-        bot_dct[review_date].append([domain, bot])
+        domain, bot = d['domain'], d['sum(user_is_bot)']
+        domain_bots.append({"domain": domain, "created_by_bots": bot})
 
-    for k in bot_dct:
-        data = [str(k), str(k+timedelta(hours=1)), bot_dct[k]]
-        print(data)
-        res_df = spark.createDataFrame(data=[data], schema=schema)
-        res_df.printSchema()
-        res_df.show(truncate=False)
-
-        # r = str(k)[11:13] # retrieve hour
-        # res_df.write.mode("Overwrite").json(f"./b_{r}")
+    time_start, time_end, statistics = time_start, time_end, f"{domain_bots}"
+    statistics = statistics.replace("'", '"')
+    query = f"INSERT INTO statistics2 (time_start, time_end, statistics) VALUES ('{time_start}', '{time_end}', '{statistics}');"
+    client.execute(query)
 
 
-def rerport3():
-    grouped_domain = df.withColumn("review_date", date_trunc("hour", col("review_date"))).groupBy(
+def report3(df):
+    now = datetime.now()
+    time_start = (now - timedelta(hours=7)).replace(minute=0,
+                                                    second=0, microsecond=0)
+    time_end = (now - timedelta(hours=1)).replace(minute=0,
+                                                  second=0, microsecond=0)
+
+    grouped_domain = df.withColumn("review_date", date_trunc("hour", col("review_date"))).filter(
+        (df.review_date >= time_start) & (df.review_date <= time_end)).groupBy(
         'user_id').agg(F.count("page_id")).sort(desc("count(page_id)")).limit(20)
 
+    # grouped_domain.show()
+
     users = [u[0] for u in grouped_domain.collect()]
-    filtered_users = df.filter(df.user_id.isin(users)).select("user_text", "user_id", "review_date", "page_title")
+    statistics = []
 
-    schema = StructType([
-        StructField("user_name", StringType()),
-        StructField("user_id", LongType()),
-        StructField("time_start", StringType()),
-        StructField("time_end", StringType()),
-        StructField("page_count", LongType()),
-        StructField("page_titles", ArrayType(
-            StructType([
-                    StructField("page_title", StringType())
-                ])
-        ))
-    ])
-    data = []
-    for user in users:
-        f = filtered_users.select("user_text", "review_date", "page_title").where(filtered_users.user_id == user)
-        page_titles = []
-        for i in f.collect():
-            page_titles.append(str(i['page_title']))
+    for user_id in users:
+        page_titles = df.filter((df.review_date >= time_start) &
+                                (df.review_date <= time_end) & (df.user_id == user_id)).select("page_title").distinct()
+        user_name = df.filter((df.review_date >= time_start) &
+                              (df.review_date <= time_end) & (df.user_id == user_id)).select("user_text").distinct()
 
-        data.append([i["user_text"], user, str(i['review_date']), str(i['review_date']+timedelta(hours=6)), len(page_titles), page_titles])
+        titles = []
+        for i in page_titles.collect():
+            titles.append(i[-1])
 
-    res_df = spark.createDataFrame(data=data, schema=schema)
-    res_df.printSchema()
-    res_df.show(truncate=False)
+        name = user_name.collect()[0].user_text
+        statistics.append([name, user_id, titles, len(titles)])
 
-    # res_df.write.mode("Overwrite").json(f"./report3_hour_{}")
+    statistics = f"{statistics}"
+    statistics = statistics.replace("'", '"')
+    query = f"INSERT INTO statistics3 (time_start, time_end, statistics) VALUES ('{time_start}', '{time_end}', '{statistics}');"
+    client.execute(query)
+
+
+def write_reports():
+    df = read_from_cassandra()
+    report1(df)
+    report2(df)
+    report3(df)
 
 
 if __name__ == "__main__":
@@ -129,17 +117,14 @@ if __name__ == "__main__":
     client = CassandraClient(host, port, keyspace)
     client.connect()
 
-    # # call every hour
-    # scheduler = BlockingScheduler()
-    # df = read_from_cassandra()
-    # scheduler.add_job(rerport1, 'interval', hours=1)
-    # scheduler.add_job(rerport2, 'interval', hours=1)
-    # scheduler.add_job(rerport3, 'interval', hours=1)
-    # scheduler.start()
+    # call every hour
+    scheduler = BlockingScheduler()
+    scheduler.add_job(write_reports, 'interval', hours=1)
+    scheduler.start()
 
-    df = read_from_cassandra()
-    rerport1()
-    # rerport2()
-    # rerport3()
+    # df = read_from_cassandra()
+    # report1(df)
+    # report2(df)
+    # report3(df)
 
     client.close()
