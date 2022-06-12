@@ -22,7 +22,6 @@ parser.add_argument('end_date', type=str, required=False)
 parser.add_argument('file_name', type=str, required=False)
 
 # requests 1-5 are for Category B questions
-# requests 6-8 are for Category A reports
 
 
 class RetrieveData(Resource):
@@ -30,12 +29,6 @@ class RetrieveData(Resource):
     def get(self):
 
         args = request.get_json()
-
-        now = datetime.now()
-        time_start = (now - timedelta(hours=7)).replace(minute=0,
-                                                        second=0, microsecond=0)
-        time_end = (now - timedelta(hours=1)).replace(minute=0,
-                                                      second=0, microsecond=0)
 
         if args['request_num'] == 1:
             result = client.query_one()
@@ -77,54 +70,6 @@ class RetrieveData(Resource):
                     dct['page_title'] = i.page_title
                     dct['user_id'] = i.user_id
                     res["info"].append(dct)
-        elif args["request_num"] == 6:
-
-            result = client.query_statistics1()
-            res = []
-
-            for i in result:
-                if i.time_start >= time_start and i.time_end <= time_end:
-                    cur_time = {}
-                    cur_time["time_start"] = str(i.time_start.hour) + ":00"
-                    cur_time["time_end"] = str(i.time_end.hour) + ":00"
-                    cur_time["statistics"] = []
-
-                    statistics = ast.literal_eval(i.statistics)
-
-                    for domain, count in statistics:
-                        dct_statistics = {domain: count}
-                        cur_time["statistics"].append(dct_statistics)
-                    res.append(cur_time)
-
-        elif args["request_num"] == 7:
-
-            result = client.query_statistics2()
-
-            res = {}
-            res["time_start"] = str(time_start.hour) + ":00"
-            res["time_end"] = str(time_end.hour) + ":00"
-            res["statistics"] = []
-
-            for i in result:
-                if i.time_start >= time_start and i.time_end <= time_end:
-                    statistics = ast.literal_eval(i.statistics)
-                    res["statistics"].append(statistics)
-
-        elif args["request_num"] == 8:
-
-            res = {}
-            result = client.query_statistics3()
-
-            for i in result:
-                if i.time_start >= time_start and i.time_end <= time_end:
-                    res["time_start"] = str(i.time_start.hour) + ":00"
-                    res["time_end"] = str(i.time_end.hour) + ":00"
-                    statistics = ast.literal_eval(i.statistics)
-                    user_info = []
-                    for user_name, user_id, titles, page_count in statistics:
-                        user_info.append(
-                            {"user_name": user_name, "user_id": user_id, "titles": titles, "page_count": page_count})
-                    res["statistics"] = user_info
         else:
             return "Invalid request"
 

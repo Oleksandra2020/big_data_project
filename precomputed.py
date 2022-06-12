@@ -105,6 +105,7 @@ def report3(df):
 
 def write_reports():
     df = read_from_cassandra()
+    print("Time:", str(datetime.now()))
     report1(df)
     report2(df)
     report3(df)

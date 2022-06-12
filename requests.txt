@@ -1,3 +1,24 @@
+Category A:
+
+curl --header "Content-Type: application/json" \
+  --request GET \
+  --data '{"request_num":1}' \
+  http://0.0.0.0:8082/
+
+curl --header "Content-Type: application/json" \
+  --request GET \
+  --data '{"request_num":2}' \
+  http://0.0.0.0:8082/
+
+curl --header "Content-Type: application/json" \
+  --request GET \
+  --data '{"request_num":3}' \
+  http://0.0.0.0:8082/
+
+
+
+Category B:
+
 curl --header "Content-Type: application/json" \
   --request GET \
   --data '{"request_num":1}' \
@@ -20,20 +41,4 @@ curl --header "Content-Type: application/json" \
 
 curl --header "Content-Type: application/json" \
   --request GET \
-  --data '{"request_num":5,"start_date":"2022-06-12T15:41:17Z","end_date":"2022-06-12T18:41:17Z"}' \
-  http://0.0.0.0:8081/
-
-curl --header "Content-Type: application/json" \
-  --request GET \
-  --data '{"request_num":6}' \
-  http://0.0.0.0:8081/
-
-curl --header "Content-Type: application/json" \
-  --request GET \
-  --data '{"request_num":7}' \
-  http://0.0.0.0:8081/
-
-curl --header "Content-Type: application/json" \
-  --request GET \
-  --data '{"request_num":8}' \
-  http://0.0.0.0:8081/
+  --data '{"request_num":5,"start_date":"2022-06-12T15:41:17Z","end_date":"2022-06-12T18:41:17Z"}' http://0.0.0.0:8081/
