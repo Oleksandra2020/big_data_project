@@ -74,7 +74,7 @@ class RetrieveData(Resource):
                     user_info = []
                     for user_name, user_id, titles, page_count in statistics:
                         user_info.append(
-                            {"user_name": user_name, "user_id": user_id, "titles": titles, "page_count": page_count})
+                            {"user_name": user_name, "user_id": user_id, "page_count": page_count, "titles": titles})
                     res["statistics"] = user_info
         else:
             return "Invalid request"

@@ -1,8 +1,7 @@
 from flask_restful import reqparse, Resource, Api
 from cassandra_client import cassandra_client
 from flask import Flask, request
-from datetime import datetime, timedelta
-import ast
+from datetime import datetime
 import json
 
 
@@ -36,10 +35,11 @@ class RetrieveData(Resource):
             for i in result:
                 res["domains"].append(i.domain)
         elif args['request_num'] == 2:
-            result = client.query_two(args['user_id'])
+            result = client.query_two()
             res = {"page_titles": []}
             for i in result:
-                res["page_titles"].append(i.page_title)
+                if i.user_id == args["user_id"]:
+                    res["page_titles"].append(i.page_title)
         elif args['request_num'] == 3:
             result = client.query_three()
             res = {}

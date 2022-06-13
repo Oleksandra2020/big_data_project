@@ -26,7 +26,7 @@ curl --header "Content-Type: application/json" \
 
 curl --header "Content-Type: application/json" \
   --request GET \
-  --data '{"request_num":2,"user_id":"62513"}' \
+  --data '{"request_num":2,"user_id":62513}' \
   http://0.0.0.0:8081/
 
 curl --header "Content-Type: application/json" \
@@ -36,9 +36,9 @@ curl --header "Content-Type: application/json" \
 
 curl --header "Content-Type: application/json" \
   --request GET \
-  --data '{"request_num":4,"page_id":723537}' \
+  --data '{"request_num":4,"page_id":723535}' \
   http://0.0.0.0:8081/
 
 curl --header "Content-Type: application/json" \
   --request GET \
-  --data '{"request_num":5,"start_date":"2022-06-12T15:41:17Z","end_date":"2022-06-12T18:41:17Z"}' http://0.0.0.0:8081/
+  --data '{"request_num":5,"start_date":"2022-06-12T18:31:17Z","end_date":"2022-06-12T18:31:35Z"}' http://0.0.0.0:8081/

@@ -1,10 +1,10 @@
 {
-    "time_start": "12:00",
-    "time_end": "18:00",
+    "time_start": "23:00",
+    "time_end": "5:00",
     "statistics": [
         [
             {
-                "domain": "bh.wikipedia.org",
+                "domain": "dty.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -12,15 +12,11 @@
                 "created_by_bots": 0
             },
             {
-                "domain": "en.wikibooks.org",
+                "domain": "ban.wikisource.org",
                 "created_by_bots": 0
             },
             {
                 "domain": "cs.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "sd.wiktionary.org",
                 "created_by_bots": 0
             },
             {
@@ -29,14 +25,10 @@
             },
             {
                 "domain": "commons.wikimedia.org",
-                "created_by_bots": 1197
+                "created_by_bots": 2319
             },
             {
                 "domain": "cv.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "de.wikivoyage.org",
                 "created_by_bots": 0
             },
             {
@@ -53,42 +45,26 @@
             },
             {
                 "domain": "ko.wikipedia.org",
-                "created_by_bots": 0
+                "created_by_bots": 1
             },
             {
-                "domain": "vo.wikipedia.org",
+                "domain": "ga.wikipedia.org",
                 "created_by_bots": 0
             },
             {
                 "domain": "id.wikipedia.org",
-                "created_by_bots": 0
+                "created_by_bots": 1
             },
             {
                 "domain": "ta.wikipedia.org",
-                "created_by_bots": 5
+                "created_by_bots": 6
             },
             {
                 "domain": "et.wikipedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "ku.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
                 "domain": "ml.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "so.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "mk.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "diq.wiktionary.org",
                 "created_by_bots": 0
             },
             {
@@ -100,35 +76,15 @@
                 "created_by_bots": 2
             },
             {
-                "domain": "sv.wiktionary.org",
-                "created_by_bots": 0
-            },
-            {
                 "domain": "el.wikipedia.org",
                 "created_by_bots": 0
             },
             {
                 "domain": "en.wikipedia.org",
-                "created_by_bots": 16
+                "created_by_bots": 59
             },
             {
-                "domain": "na.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "alt.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "sl.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "bar.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "mr.wikisource.org",
+                "domain": "pa.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -136,11 +92,31 @@
                 "created_by_bots": 0
             },
             {
+                "domain": "fa.wikisource.org",
+                "created_by_bots": 0
+            },
+            {
                 "domain": "ru.wikinews.org",
                 "created_by_bots": 4
             },
             {
+                "domain": "hif.wikipedia.org",
+                "created_by_bots": 0
+            },
+            {
+                "domain": "sah.wikiquote.org",
+                "created_by_bots": 0
+            },
+            {
                 "domain": "de.wikisource.org",
+                "created_by_bots": 0
+            },
+            {
+                "domain": "en.wikiversity.org",
+                "created_by_bots": 0
+            },
+            {
+                "domain": "kn.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -152,7 +128,19 @@
                 "created_by_bots": 0
             },
             {
+                "domain": "is.wikipedia.org",
+                "created_by_bots": 0
+            },
+            {
+                "domain": "ku.wiktionary.org",
+                "created_by_bots": 0
+            },
+            {
                 "domain": "it.wikiquote.org",
+                "created_by_bots": 0
+            },
+            {
+                "domain": "su.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -165,10 +153,6 @@
             },
             {
                 "domain": "sr.wikipedia.org",
-                "created_by_bots": 1
-            },
-            {
-                "domain": "tum.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -177,18 +161,14 @@
             },
             {
                 "domain": "fr.wiktionary.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "th.wikisource.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "crh.wikipedia.org",
-                "created_by_bots": 0
+                "created_by_bots": 1
             },
             {
                 "domain": "tr.wikipedia.org",
+                "created_by_bots": 0
+            },
+            {
+                "domain": "ar.wiktionary.org",
                 "created_by_bots": 0
             },
             {
@@ -200,15 +180,15 @@
                 "created_by_bots": 0
             },
             {
-                "domain": "or.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
                 "domain": "zh.wiktionary.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "ua.wikimedia.org",
+                "domain": "my.wikipedia.org",
+                "created_by_bots": 1
+            },
+            {
+                "domain": "gu.wikisource.org",
                 "created_by_bots": 0
             },
             {
@@ -217,26 +197,22 @@
             },
             {
                 "domain": "www.mediawiki.org",
-                "created_by_bots": 2
-            },
-            {
-                "domain": "be-tarask.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "fy.wikipedia.org",
-                "created_by_bots": 0
+                "created_by_bots": 3
             },
             {
                 "domain": "ka.wikipedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "wuu.wikipedia.org",
+                "domain": "incubator.wikimedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "incubator.wikimedia.org",
+                "domain": "xmf.wikipedia.org",
+                "created_by_bots": 0
+            },
+            {
+                "domain": "ar.wikiversity.org",
                 "created_by_bots": 0
             },
             {
@@ -252,11 +228,15 @@
                 "created_by_bots": 0
             },
             {
-                "domain": "en.wikivoyage.org",
+                "domain": "guw.wikipedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "sn.wikipedia.org",
+                "domain": "bjn.wikipedia.org",
+                "created_by_bots": 0
+            },
+            {
+                "domain": "en.wikivoyage.org",
                 "created_by_bots": 0
             },
             {
@@ -268,16 +248,16 @@
                 "created_by_bots": 0
             },
             {
+                "domain": "bn.wiktionary.org",
+                "created_by_bots": 0
+            },
+            {
                 "domain": "pl.wiktionary.org",
                 "created_by_bots": 0
             },
             {
                 "domain": "de.wikipedia.org",
-                "created_by_bots": 9
-            },
-            {
-                "domain": "cs.wiktionary.org",
-                "created_by_bots": 0
+                "created_by_bots": 8
             },
             {
                 "domain": "pt.wikipedia.org",
@@ -288,12 +268,8 @@
                 "created_by_bots": 0
             },
             {
-                "domain": "si.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
                 "domain": "es.wikipedia.org",
-                "created_by_bots": 3
+                "created_by_bots": 5
             },
             {
                 "domain": "bs.wikipedia.org",
@@ -308,27 +284,23 @@
                 "created_by_bots": 0
             },
             {
-                "domain": "am.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
                 "domain": "es.wiktionary.org",
                 "created_by_bots": 0
             },
             {
                 "domain": "eu.wikipedia.org",
-                "created_by_bots": 6
+                "created_by_bots": 3
             },
             {
                 "domain": "ar.wikisource.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "tt.wikipedia.org",
+                "domain": "hy.wikipedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "hy.wikipedia.org",
+                "domain": "te.wikisource.org",
                 "created_by_bots": 0
             },
             {
@@ -340,23 +312,27 @@
                 "created_by_bots": 0
             },
             {
+                "domain": "km.wikipedia.org",
+                "created_by_bots": 0
+            },
+            {
                 "domain": "ar.wikipedia.org",
-                "created_by_bots": 76
+                "created_by_bots": 624
             },
             {
                 "domain": "nah.wikipedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "pl.wikinews.org",
+                "domain": "sat.wikipedia.org",
                 "created_by_bots": 0
             },
             {
                 "domain": "ro.wikipedia.org",
-                "created_by_bots": 1
+                "created_by_bots": 0
             },
             {
-                "domain": "szl.wikipedia.org",
+                "domain": "ban.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -364,15 +340,7 @@
                 "created_by_bots": 0
             },
             {
-                "domain": "de.wiktionary.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "sk.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "sr.wiktionary.org",
+                "domain": "ko.wikisource.org",
                 "created_by_bots": 0
             },
             {
@@ -381,11 +349,11 @@
             },
             {
                 "domain": "fa.wikipedia.org",
-                "created_by_bots": 2
+                "created_by_bots": 1
             },
             {
                 "domain": "it.wikipedia.org",
-                "created_by_bots": 55
+                "created_by_bots": 51
             },
             {
                 "domain": "it.wikisource.org",
@@ -397,18 +365,22 @@
             },
             {
                 "domain": "no.wikipedia.org",
-                "created_by_bots": 4
+                "created_by_bots": 102
             },
             {
                 "domain": "gu.wikipedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "nl.wikipedia.org",
-                "created_by_bots": 22
+                "domain": "bug.wikipedia.org",
+                "created_by_bots": 0
             },
             {
-                "domain": "af.wikipedia.org",
+                "domain": "nl.wikipedia.org",
+                "created_by_bots": 0
+            },
+            {
+                "domain": "lad.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -417,38 +389,22 @@
             },
             {
                 "domain": "pl.wikipedia.org",
-                "created_by_bots": 0
+                "created_by_bots": 4
             },
             {
                 "domain": "ru.wiktionary.org",
-                "created_by_bots": 3
+                "created_by_bots": 1
             },
             {
                 "domain": "gl.wikipedia.org",
-                "created_by_bots": 6
+                "created_by_bots": 0
             },
             {
                 "domain": "meta.wikimedia.org",
-                "created_by_bots": 33
+                "created_by_bots": 49
             },
             {
-                "domain": "nn.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "it.wikibooks.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "no.wiktionary.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "zh.wikivoyage.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "bn.wikivoyage.org",
+                "domain": "id.wikimedia.org",
                 "created_by_bots": 0
             },
             {
@@ -460,35 +416,19 @@
                 "created_by_bots": 0
             },
             {
-                "domain": "mr.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "fr.wikinews.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "jv.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
                 "domain": "lv.wikipedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "eo.wikivoyage.org",
-                "created_by_bots": 0
-            },
-            {
                 "domain": "hu.wikipedia.org",
+                "created_by_bots": 2
+            },
+            {
+                "domain": "ms.wiktionary.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "mnw.wiktionary.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "simple.wiktionary.org",
+                "domain": "cs.wikiquote.org",
                 "created_by_bots": 0
             },
             {
@@ -505,18 +445,14 @@
             },
             {
                 "domain": "ja.wikipedia.org",
-                "created_by_bots": 0
+                "created_by_bots": 16
             },
             {
                 "domain": "eo.wikipedia.org",
-                "created_by_bots": 76
-            },
-            {
-                "domain": "hi.wikipedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "ur.wikipedia.org",
+                "domain": "hi.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -525,19 +461,11 @@
             },
             {
                 "domain": "uk.wikipedia.org",
-                "created_by_bots": 2
+                "created_by_bots": 1
             },
             {
                 "domain": "ru.wikipedia.org",
-                "created_by_bots": 30
-            },
-            {
-                "domain": "lld.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "nl.wikibooks.org",
-                "created_by_bots": 0
+                "created_by_bots": 39
             },
             {
                 "domain": "ps.wikipedia.org",
@@ -545,10 +473,10 @@
             },
             {
                 "domain": "zh.wikipedia.org",
-                "created_by_bots": 20
+                "created_by_bots": 44
             },
             {
-                "domain": "sd.wikipedia.org",
+                "domain": "yi.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -556,35 +484,27 @@
                 "created_by_bots": 0
             },
             {
-                "domain": "www.wikidata.org",
-                "created_by_bots": 116
+                "domain": "ht.wikipedia.org",
+                "created_by_bots": 0
             },
             {
-                "domain": "ru.wikisource.org",
+                "domain": "www.wikidata.org",
+                "created_by_bots": 145
+            },
+            {
+                "domain": "ko.wiktionary.org",
                 "created_by_bots": 0
             },
             {
                 "domain": "fr.wikipedia.org",
-                "created_by_bots": 38
+                "created_by_bots": 99
             },
             {
                 "domain": "species.wikimedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "la.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "zh.wikiversity.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "vec.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "ks.wikipedia.org",
+                "domain": "mai.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -600,7 +520,11 @@
                 "created_by_bots": 0
             },
             {
-                "domain": "sh.wikipedia.org",
+                "domain": "hi.wikiquote.org",
+                "created_by_bots": 0
+            },
+            {
+                "domain": "zh-classical.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -612,11 +536,7 @@
                 "created_by_bots": 0
             },
             {
-                "domain": "fa.wikiquote.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "de.wikiversity.org",
+                "domain": "es.wikiquote.org",
                 "created_by_bots": 0
             },
             {
@@ -625,30 +545,14 @@
             },
             {
                 "domain": "vi.wikipedia.org",
-                "created_by_bots": 1
-            },
-            {
-                "domain": "skr.wiktionary.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "fi.wiktionary.org",
-                "created_by_bots": 0
+                "created_by_bots": 4
             },
             {
                 "domain": "fi.wikipedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "lb.wikipedia.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "pt.wikiquote.org",
-                "created_by_bots": 0
-            },
-            {
-                "domain": "nds.wikipedia.org",
+                "domain": "hi.wikisource.org",
                 "created_by_bots": 0
             },
             {
@@ -656,8 +560,12 @@
                 "created_by_bots": 3
             },
             {
-                "domain": "simple.wikipedia.org",
+                "domain": "es.wikibooks.org",
                 "created_by_bots": 0
+            },
+            {
+                "domain": "simple.wikipedia.org",
+                "created_by_bots": 1
             },
             {
                 "domain": "az.wikipedia.org",
@@ -669,10 +577,6 @@
             },
             {
                 "domain": "ca.wikipedia.org",
-                "created_by_bots": 1
-            },
-            {
-                "domain": "av.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -680,11 +584,15 @@
                 "created_by_bots": 0
             },
             {
-                "domain": "pl.wikisource.org",
+                "domain": "sv.wikisource.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "outreach.wikimedia.org",
+                "domain": "as.wikipedia.org",
+                "created_by_bots": 9
+            },
+            {
+                "domain": "udm.wikipedia.org",
                 "created_by_bots": 0
             },
             {
@@ -692,23 +600,23 @@
                 "created_by_bots": 0
             },
             {
+                "domain": "smn.wikipedia.org",
+                "created_by_bots": 0
+            },
+            {
                 "domain": "bn.wikipedia.org",
-                "created_by_bots": 2
+                "created_by_bots": 0
             },
             {
                 "domain": "ig.wikipedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "en.wiktionary.org",
-                "created_by_bots": 1
-            },
-            {
-                "domain": "avk.wikipedia.org",
+                "domain": "ceb.wikipedia.org",
                 "created_by_bots": 0
             },
             {
-                "domain": "pt.wiktionary.org",
+                "domain": "en.wiktionary.org",
                 "created_by_bots": 0
             }
         ]

@@ -21,8 +21,6 @@ class CassandraClient:
             query = f"INSERT INTO {table} (domain, page_id) VALUES ('{data['domain']}', {data['page_id']});"
         if table == "pages":
             query = f"INSERT INTO {table} (page_id, page_title) VALUES ({data['page_id']}, '{data['page_title']}');"
-        if table == "page_user":
-            query = f"INSERT INTO {table} (user_id, page_title) VALUES ({data['user_id']}, '{data['page_title']}');"
         if table == "info_per_date":
             query = f"INSERT INTO {table} (review_date, page_title, page_id, user_id) VALUES" + \
                 f"('{data['review_date']}', '{data['page_title']}', {data['page_id']}, {data['user_id']});"
@@ -40,8 +38,8 @@ class CassandraClient:
         print(rows)
         return rows
 
-    def query_two(self, user_id):
-        query = f"SELECT page_title FROM page_user WHERE user_id={user_id};"
+    def query_two(self):
+        query = f"SELECT page_title, user_id FROM general;"
         rows = self.session.execute(query)
         return rows
 
