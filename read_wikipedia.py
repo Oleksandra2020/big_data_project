@@ -19,8 +19,6 @@ def write_to_cassandra():
                         "page_domain", {"domain": record["meta"]["domain"], "page_id": record["page_id"]})
                     client.insert_record(
                         "pages", {"page_id": record["page_id"], "page_title": record["page_title"]})
-                    client.insert_record(
-                        "page_user", {"user_id": record["performer"]["user_id"], "page_title": record["page_title"]})
 
                     review_date = record["rev_timestamp"]
                     review_date = datetime.strptime(

@@ -118,6 +118,7 @@ if __name__ == "__main__":
     client = CassandraClient(host, port, keyspace)
     client.connect()
 
+    # write_reports()
     # call every hour
     scheduler = BlockingScheduler()
     scheduler.add_job(write_reports, 'interval', hours=1)
